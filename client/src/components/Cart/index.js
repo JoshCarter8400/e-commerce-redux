@@ -19,7 +19,6 @@ const Cart = () => {
     });
     return sum.toFixed(2);
   }
-  console.log(state);
 
   if (!state.cartOpen) {
     return (
@@ -30,6 +29,7 @@ const Cart = () => {
       </div>
     );
   }
+
   return (
     <div className="cart">
       <div className="close" onClick={toggleCart}>
@@ -41,8 +41,10 @@ const Cart = () => {
           {state.cart.map((item) => (
             <CartItem key={item._id} item={item} />
           ))}
+
           <div className="flex-row space-between">
             <strong>Total: ${calculateTotal()}</strong>
+
             {Auth.loggedIn() ? (
               <button>Checkout</button>
             ) : (
@@ -58,32 +60,6 @@ const Cart = () => {
           You haven't added anything to your cart yet!
         </h3>
       )}
-      <div>
-        <CartItem
-          item={{
-            name: 'Camera',
-            image: 'camera.jpg',
-            price: 5,
-            purchaseQuantity: 3,
-          }}
-        />
-        <CartItem
-          item={{
-            name: 'Soap',
-            image: 'soap.jpg',
-            price: 6,
-            purchaseQuantity: 4,
-          }}
-        />
-        <div className="flex-row space-between">
-          <strong>Total: $0</strong>
-          {Auth.loggedIn() ? (
-            <button>Checkout</button>
-          ) : (
-            <span>(Please Log In To Checkout!)</span>
-          )}
-        </div>
-      </div>
     </div>
   );
 };
