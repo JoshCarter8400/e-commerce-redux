@@ -1,1 +1,1 @@
-# Shop-Shop
+# E-Commerce Store with Redux
