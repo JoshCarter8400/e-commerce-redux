@@ -33,8 +33,6 @@ function App() {
         <div>
           <Provider store={store}>
             <Nav />
-            <h4>Check the console</h4>
-            <div className="container">{console.log(store.getState())}</div>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
